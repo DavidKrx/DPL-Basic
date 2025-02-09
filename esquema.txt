@@ -1,0 +1,23 @@
+User Basic
+ Productos
+  Listar
+  	Detalles
+
+User Manager
+ Productos
+  Listar
+  	Detalles
+	Crear
+
+User Admind
+ Productos  => Include de Provincias=> Include Municipios a Provincias
+  Listar
+  	Detalles
+  	Crear
+	COMPRAR => mete el producto en el Carrito
+
+Carrito
+  Listar
+  Borrar
+  Finalizar Pedido
+

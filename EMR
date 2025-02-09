@@ -1,0 +1,62 @@
+// Docs: https://dbml.dbdiagram.io/docs
+// https://dbdiagram.io/d
+
+Table provincias {
+  id_provincia integer [primary key]
+  nombre varchar
+}
+
+Table municipios {
+  id_municipio integer [primary key]
+  provincia_id integer
+  nombre varchar
+}
+
+Table productoffer {
+  id_producto integer [primary key]
+  municipio_id integer
+  nombre varchar
+  precio double
+  stock int
+}
+
+Table users {
+  id integer [primary key]
+  email varchar
+  password varchar
+}
+
+Table roles {
+  id integer [primary key]
+  name varchar
+}
+
+Table users_roles{
+  user_id int
+  role_id int
+}
+
+Table carritos {
+  id integer [primary key]
+  user_id integer
+  fecha timestamp
+  precioTotal double
+  status boolean
+}
+
+Table carrito_productoffer{
+  product_id int
+  carrito_id int
+}
+
+Ref: carritos.user_id > users.id // many-to-one
+
+Ref: municipios.provincia_id > provincias.id_provincia
+
+Ref: productoffer.municipio_id > municipios.id_municipio
+
+Ref: users_roles.user_id > users.id
+Ref: users_roles.role_id > roles.id
+
+Ref: carrito_productoffer.carrito_id > carritos.id
+Ref: carrito_productoffer.product_id > productoffer.id_producto
